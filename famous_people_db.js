@@ -23,7 +23,7 @@ module.exports = (() => {
     client.query(`SELECT * FROM famous_people
                   WHERE first_name ILIKE '%' || $1::text || '%'
                   OR last_name ILIKE '%' || $1::text || '%';`,
-                  [process.argv[2]], (err, result) => {
+                  [name], (err, result) => {
       if (err) {
         callback(err, []);
       } else {
